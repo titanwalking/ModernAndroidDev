@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.alicankorkmaz.modernandroiddev.arch.SideEffect
 import com.alicankorkmaz.modernandroiddev.arch.ViewState
 import com.alicankorkmaz.modernandroiddev.util.collectFlow
+import dagger.hilt.android.AndroidEntryPoint
 import java.lang.reflect.ParameterizedType
+import javax.inject.Inject
 
 abstract class BaseFragment<VM : BaseViewModel<*, *, *>>(@LayoutRes val layoutResId: Int) :
     Fragment(layoutResId) {
@@ -17,7 +19,7 @@ abstract class BaseFragment<VM : BaseViewModel<*, *, *>>(@LayoutRes val layoutRe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[getVmClass()]
+        viewModel = ViewModelProvider(this)[getViewModelClass()]
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,8 +32,5 @@ abstract class BaseFragment<VM : BaseViewModel<*, *, *>>(@LayoutRes val layoutRe
 
     abstract fun observeSideEffects()
 
-    @Suppress("UNCHECKED_CAST")
-    private fun getVmClass(): Class<VM> {
-        return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VM>
-    }
+    abstract fun getViewModelClass(): Class<VM>
 }

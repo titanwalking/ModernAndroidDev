@@ -56,8 +56,9 @@ dependencies {
     implementation(Square.retrofit2)
     implementation(Square.retrofit2.converter.moshi)
     implementation(Square.okHttp3.loggingInterceptor)
-    implementation("com.jakewharton.timber:timber:5.0.1")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation(JakeWharton.timber)
+    implementation(AndroidX.lifecycle.runtimeKtx)
+    implementation(AndroidX.fragment.ktx)
 
 
     testImplementation(Testing.junit4)

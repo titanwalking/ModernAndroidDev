@@ -14,24 +14,23 @@ abstract class BaseViewModel<State: ViewState, Event: UiEvent, Effect: SideEffec
     abstract fun createInitialState() : State
 
     val currentState: State
-        get() = uiState.value
+        get() = viewState.value
 
-    private val _uiState : MutableStateFlow<State> = MutableStateFlow(initialState)
-    val uiState = _uiState.asStateFlow()
+    private val _viewState : MutableStateFlow<State> = MutableStateFlow(initialState)
+    val viewState = _viewState.asStateFlow()
 
-    private val _event : MutableSharedFlow<Event> = MutableSharedFlow()
-    val event = _event.asSharedFlow()
+    private val uiEvent : MutableSharedFlow<Event> = MutableSharedFlow()
 
-    private val _effect : Channel<Effect> = Channel()
-    val effect = _effect.receiveAsFlow()
+    private val _sideEffect : Channel<Effect> = Channel()
+    val sideEffect = _sideEffect.receiveAsFlow()
 
     init {
-        subscribeToEvents()
+        subscribeToUiEvents()
     }
 
-    private fun subscribeToEvents() {
+    private fun subscribeToUiEvents() {
         viewModelScope.launch {
-            event.collect {
+            uiEvent.collect {
                 handleUiEvent(it)
             }
         }
@@ -41,16 +40,15 @@ abstract class BaseViewModel<State: ViewState, Event: UiEvent, Effect: SideEffec
 
     protected fun setState(reduce: State.() -> State) {
         val newState = currentState.reduce()
-        _uiState.value = newState
+        _viewState.value = newState
     }
 
     fun onUiEvent(event : Event) {
-        val newEvent = event
-        viewModelScope.launch { _event.emit(newEvent) }
+        viewModelScope.launch { uiEvent.emit(event) }
     }
 
     protected fun sendEffect(builder: () -> Effect) {
         val effectValue = builder()
-        viewModelScope.launch { _effect.send(effectValue) }
+        viewModelScope.launch { _sideEffect.send(effectValue) }
     }
 }

@@ -14,7 +14,7 @@ import com.alicankorkmaz.modernandroiddev.arch.ViewState
 
 abstract class BaseDataBindingFragment<B: ViewDataBinding, VM: BaseViewModel<*, *, *>>(@LayoutRes layoutResId: Int) : BaseFragment<VM>(layoutResId) {
 
-    private lateinit var binding: B
+    protected lateinit var binding: B
 
     override fun onCreateView(
         inflater: LayoutInflater,

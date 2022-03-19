@@ -10,13 +10,15 @@ class BlankContract {
         object Idle : State()
         object Loading : State()
         data class Success(val message: String) : State()
+        data class Error(val errorMessage: String) : State()
     }
 
     sealed class Event : UiEvent {
+        object SendRequest : Event()
         object OnShowToastClicked : Event()
     }
 
     sealed class Effect : SideEffect {
-        object ShowToast : Effect()
+        data class ShowToast(val toastMessage: String) : Effect()
     }
 }
