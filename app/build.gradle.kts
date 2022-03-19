@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 
@@ -50,8 +51,20 @@ dependencies {
     implementation(AndroidX.constraintLayout)
     implementation(AndroidX.lifecycle.liveDataKtx)
     implementation(AndroidX.lifecycle.viewModelKtx)
+    implementation(Google.dagger.hilt.android)
+    kapt(Google.dagger.hilt.compiler)
+    implementation(Square.retrofit2)
+    implementation(Square.retrofit2.converter.moshi)
+    implementation(Square.okHttp3.loggingInterceptor)
+    implementation("com.jakewharton.timber:timber:5.0.1")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+
 
     testImplementation(Testing.junit4)
     androidTestImplementation(AndroidX.test.ext.junit)
     androidTestImplementation(AndroidX.test.espresso.core)
+}
+
+kapt {
+    correctErrorTypes = true
 }

@@ -5,13 +5,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.alicankorkmaz.modernandroiddev.ui.BlankViewModel" />
+            type="com.alicankorkmaz.modernandroiddev.ui.blank.BlankViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.BlankFragment">
+        tools:context=".ui.blank.BlankFragment">
 
         <TextView
             android:layout_width="match_parent"
