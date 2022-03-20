@@ -6,6 +6,7 @@ import com.alicankorkmaz.modernandroiddev.arch.ViewState
 
 class BlankContract {
 
+    // Demonstrates usage of ViewState as a sealed class
     sealed class State : ViewState {
         object Idle : State()
         object Loading : State()

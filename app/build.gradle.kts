@@ -54,11 +54,13 @@ dependencies {
     implementation(Google.dagger.hilt.android)
     kapt(Google.dagger.hilt.compiler)
     implementation(Square.retrofit2)
-    implementation(Square.retrofit2.converter.moshi)
+    implementation(Square.retrofit2.converter.scalars)
+    implementation(Square.retrofit2.converter.gson)
     implementation(Square.okHttp3.loggingInterceptor)
     implementation(JakeWharton.timber)
     implementation(AndroidX.lifecycle.runtimeKtx)
     implementation(AndroidX.fragment.ktx)
+    implementation("com.github.haroldadmin:NetworkResponseAdapter:_")
 
 
     testImplementation(Testing.junit4)

@@ -12,3 +12,5 @@ internal val Any.TAG: String
             if (name.length <= 23) name else name.substring(name.length - 23, name.length)
         }
     }
+
+fun Any?.isNull(): Boolean = this == null

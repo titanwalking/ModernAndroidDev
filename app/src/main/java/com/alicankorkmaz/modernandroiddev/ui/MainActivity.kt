@@ -1,9 +1,9 @@
 package com.alicankorkmaz.modernandroiddev.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.alicankorkmaz.modernandroiddev.R
-import com.alicankorkmaz.modernandroiddev.ui.blank.BlankFragment
+import com.alicankorkmaz.modernandroiddev.ui.user.UserFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.container, BlankFragment.newInstance())
+            .replace(R.id.container, UserFragment.newInstance())
             .commit()
     }
 }
