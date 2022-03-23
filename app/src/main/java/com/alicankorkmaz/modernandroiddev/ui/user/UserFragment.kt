@@ -7,9 +7,9 @@ import androidx.core.widget.doOnTextChanged
 import com.alicankorkmaz.modernandroiddev.R
 import com.alicankorkmaz.modernandroiddev.common.base.BaseDataBindingFragment
 import com.alicankorkmaz.modernandroiddev.databinding.FragmentUserBinding
-import com.alicankorkmaz.modernandroiddev.util.collectFlow
-import com.alicankorkmaz.modernandroiddev.util.hideKeyboard
-import com.alicankorkmaz.modernandroiddev.util.isNull
+import com.alicankorkmaz.modernandroiddev.util.extensions.collectFlow
+import com.alicankorkmaz.modernandroiddev.util.extensions.hideKeyboard
+import com.alicankorkmaz.modernandroiddev.util.extensions.isNull
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,7 +42,7 @@ class UserFragment :
             View.GONE
         }
 
-        binding.textView.text = if(state.user.isNull()) {
+        binding.textView.text = if (state.user.isNull()) {
             ""
         } else {
             state.user.toString()

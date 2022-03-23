@@ -27,7 +27,6 @@ class DataBindingListAdapter<I : Any, B : ViewDataBinding>(
     override fun onBindViewHolder(holder: ViewHolder<B>, position: Int) {
         holder.bind(getItem(position))
     }
-
 }
 
 open class ViewHolder<B : ViewDataBinding>(val binding: B) :

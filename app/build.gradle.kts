@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("org.jmailen.kotlinter")
 }
 
 
@@ -70,4 +71,8 @@ dependencies {
 
 kapt {
     correctErrorTypes = true
+}
+
+kotlinter {
+    disabledRules = arrayOf("no-wildcard-imports")
 }

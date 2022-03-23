@@ -20,5 +20,4 @@ class UserContract {
     sealed class Effect : SideEffect {
         class ShowError(val errorMessage: String) : Effect()
     }
-
 }

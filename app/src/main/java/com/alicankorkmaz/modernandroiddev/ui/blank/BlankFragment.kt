@@ -6,7 +6,7 @@ import android.widget.Toast
 import com.alicankorkmaz.modernandroiddev.R
 import com.alicankorkmaz.modernandroiddev.common.base.BaseDataBindingFragment
 import com.alicankorkmaz.modernandroiddev.databinding.FragmentBlankBinding
-import com.alicankorkmaz.modernandroiddev.util.collectFlow
+import com.alicankorkmaz.modernandroiddev.util.extensions.collectFlow
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

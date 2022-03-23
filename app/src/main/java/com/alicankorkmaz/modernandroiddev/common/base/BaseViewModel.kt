@@ -9,19 +9,19 @@ import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModel<State: ViewState, Event: UiEvent, Effect: SideEffect> : ViewModel() {
-    private val initialState : State by lazy { createInitialState() }
-    abstract fun createInitialState() : State
+abstract class BaseViewModel<State : ViewState, Event : UiEvent, Effect : SideEffect> : ViewModel() {
+    private val initialState: State by lazy { createInitialState() }
+    abstract fun createInitialState(): State
 
     val currentState: State
         get() = viewState.value
 
-    private val _viewState : MutableStateFlow<State> = MutableStateFlow(initialState)
+    private val _viewState: MutableStateFlow<State> = MutableStateFlow(initialState)
     val viewState = _viewState.asStateFlow()
 
-    private val uiEvent : MutableSharedFlow<Event> = MutableSharedFlow()
+    private val uiEvent: MutableSharedFlow<Event> = MutableSharedFlow()
 
-    private val _sideEffect : Channel<Effect> = Channel()
+    private val _sideEffect: Channel<Effect> = Channel()
     val sideEffect = _sideEffect.receiveAsFlow()
 
     init {
@@ -36,14 +36,14 @@ abstract class BaseViewModel<State: ViewState, Event: UiEvent, Effect: SideEffec
         }
     }
 
-    protected abstract fun handleUiEvent(event : Event)
+    protected abstract fun handleUiEvent(event: Event)
 
     protected fun setState(reduce: State.() -> State) {
         val newState = currentState.reduce()
         _viewState.value = newState
     }
 
-    fun onUiEvent(event : Event) {
+    fun onUiEvent(event: Event) {
         viewModelScope.launch { uiEvent.emit(event) }
     }
 

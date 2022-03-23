@@ -9,9 +9,7 @@ import javax.inject.Inject
 import kotlin.random.Random
 
 @HiltViewModel
-class BlankViewModel @Inject constructor(
-
-) : BaseViewModel<BlankContract.State, BlankContract.Event, BlankContract.Effect>() {
+class BlankViewModel @Inject constructor() : BaseViewModel<BlankContract.State, BlankContract.Event, BlankContract.Effect>() {
     override fun createInitialState(): BlankContract.State {
         return BlankContract.State.Idle
     }

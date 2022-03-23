@@ -1,4 +1,4 @@
-package com.alicankorkmaz.modernandroiddev.util
+package com.alicankorkmaz.modernandroiddev.util.extensions
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner

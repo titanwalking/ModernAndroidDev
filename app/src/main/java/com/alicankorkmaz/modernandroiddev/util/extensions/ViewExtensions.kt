@@ -1,4 +1,4 @@
-package com.alicankorkmaz.modernandroiddev.util
+package com.alicankorkmaz.modernandroiddev.util.extensions
 
 import android.content.Context
 import android.view.View

@@ -1,4 +1,4 @@
-package com.alicankorkmaz.modernandroiddev.util
+package com.alicankorkmaz.modernandroiddev.util.extensions
 
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
@@ -10,12 +10,15 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 fun Fragment.addOnBackPressedDispatcher(onBackPressed: () -> Unit) {
-    requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object :
-        OnBackPressedCallback(true) {
-        override fun handleOnBackPressed() {
-            onBackPressed()
+    requireActivity().onBackPressedDispatcher.addCallback(
+        viewLifecycleOwner,
+        object :
+            OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                onBackPressed()
+            }
         }
-    })
+    )
 }
 
 inline fun <T> Fragment.collectFlow(

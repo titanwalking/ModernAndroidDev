@@ -8,11 +8,8 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.alicankorkmaz.modernandroiddev.BR
-import com.alicankorkmaz.modernandroiddev.arch.SideEffect
-import com.alicankorkmaz.modernandroiddev.arch.UiEvent
-import com.alicankorkmaz.modernandroiddev.arch.ViewState
 
-abstract class BaseDataBindingFragment<B: ViewDataBinding, VM: BaseViewModel<*, *, *>>(@LayoutRes layoutResId: Int) : BaseFragment<VM>(layoutResId) {
+abstract class BaseDataBindingFragment<B : ViewDataBinding, VM : BaseViewModel<*, *, *>>(@LayoutRes layoutResId: Int) : BaseFragment<VM>(layoutResId) {
 
     protected lateinit var binding: B
 
