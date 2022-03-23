@@ -6,10 +6,13 @@ plugins {
     id("org.jmailen.kotlinter")
 }
 
+tasks.check {
+    dependsOn("installKotlinterPrePushHook")
+}
 
 android {
     namespace = AppConfig.namespace
-    compileSdk = 32
+    compileSdk = AppConfig.compileSdkVersion
 
     defaultConfig {
         applicationId = AppConfig.applicationId
