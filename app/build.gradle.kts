@@ -74,7 +74,8 @@ dependencies {
     implementation(AndroidX.lifecycle.runtimeKtx)
     implementation(AndroidX.fragment.ktx)
     implementation("com.github.haroldadmin:NetworkResponseAdapter:_")
-
+    implementation(AndroidX.navigation.fragmentKtx)
+    implementation(AndroidX.navigation.uiKtx)
 
     testImplementation(Testing.junit4)
     androidTestImplementation(AndroidX.test.ext.junit)

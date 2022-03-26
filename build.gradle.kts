@@ -3,7 +3,7 @@ plugins {
     id("com.android.application") apply false
     id("com.android.library") apply false
     id("org.jetbrains.kotlin.android") version "1.6.20-M1" apply false
-    id("org.jmailen.kotlinter") version "3.9.0"
+    id("org.jmailen.kotlinter")
 }
 
 buildscript {
