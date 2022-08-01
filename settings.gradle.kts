@@ -1,3 +1,5 @@
+import de.fayard.refreshVersions.core.StabilityLevel
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -20,10 +22,11 @@ include(":app")
 plugins {
     // See https://jmfayard.github.io/refreshVersions
     id("de.fayard.refreshVersions") version "0.40.1"
+////                            # available:"0.40.2"
 }
 
 refreshVersions { // Optional: configure the plugin
     rejectVersionIf {
-        candidate.stabilityLevel.isLessStableThan(current.stabilityLevel)
+        candidate.stabilityLevel.isLessStableThan(StabilityLevel.Stable)
     }
 }
